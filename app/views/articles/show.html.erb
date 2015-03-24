@@ -1,13 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>元ネタ:</strong>
-  <%= link_to @article.url, @article.url %>
-</p>
 
-<p>
-  <%= @article.html_body.html_safe %>
-</p>
+<div class="col-sm-6">
+  <p><strong>元ネタ:</strong><%= link_to @article.url, @article.url %></p>
+</div>
 
-<%= link_to 'Back', articles_path %>
-<%= link_to 'Next', articles_path %>
+<div class="pull-right">
+  <ul class="pager">
+    <li><%= link_to "Previous", previousPage_path(@article.id) %></li>
+    <li><%= link_to "Next", nextPage_path(@article.id) %></a></li>
+  </ul>
+</div>
+
+
+<div class="row"></div>
+<hr>
+<%= @article.html_body.html_safe %>
+
+
