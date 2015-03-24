@@ -20,6 +20,7 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
+  host: ec2-107-20-244-236.compute-1.amazonaws.com
 
 development:
   <<: *default
