@@ -1,14 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-
 <div class="col-sm-6">
   <p><strong>元ネタ:</strong><%= link_to @article.url, @article.url %></p>
 </div>
 
 <div class="pull-right">
   <ul class="pager">
-    <li><%= link_to "Previous", previousPage_path(@article.id) %></li>
-    <li><%= link_to "Next", nextPage_path(@article.id) %></a></li>
+    <li>
+      <% if @hasPrevious == true then %>
+        <%= link_to "Previous", previousPage_path(@article.id) %>
+      <% else %>
+        This is First
+      <% end %>
+    </li>
+    <li>
+      <% if @hasNext == true then %>
+        <%= link_to "Next", nextPage_path(@article.id) %>
+      <% else %>
+        This is Last
+      <% end %>
+    </li>
   </ul>
 </div>
 
@@ -16,5 +27,3 @@
 <div class="row"></div>
 <hr>
 <%= @article.html_body.html_safe %>
-
-

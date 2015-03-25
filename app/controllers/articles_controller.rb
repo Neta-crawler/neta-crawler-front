@@ -5,12 +5,15 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     #@articles = Article.all
-    @articles = Article.page(params[:page])
+    @articles = Article.page(params[:page]).order('id desc')
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+    articleId = params[:id]
+    @hasNext = (articleId != getNext(articleId))
+    @hasPrevious = (articleId != getPrevious(articleId))
   end
   
   def previousPage
