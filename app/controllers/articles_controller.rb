@@ -16,6 +16,11 @@ class ArticlesController < ApplicationController
     @hasPrevious = (articleId != getPrevious(articleId))
   end
   
+  # ajax(GET) /articles/get_calendar_event
+  def get_calendar_event
+    render :json => Article.all
+  end
+  
   def previousPage
     previousId = getPrevious(params[:id])
     redirect_to :action => "show", :id => previousId

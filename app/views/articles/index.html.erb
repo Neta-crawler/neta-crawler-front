@@ -1,19 +1,26 @@
+<div class="tab-pane" id="list-contents">
+  <h1>記事一覧</h1>
+  <%= page_entries_info @articles %>
+  <table id="articles" class="table table-striped table-hover table-condensed table-bordered">
+    <thead>
+      <tr style="background: black; color: white;">
+        <th>たいとる</th>
+        <th>更新日付</th>
+      </tr>
+    </thead>
+    <tbody class="page">
+      <%= render @articles %>
+    </tbody>
+  </table>
+  <br>
+  <%= paginate @articles , remote: true %>
+</div>
 
-<h1>記事一覧</h1>
-
-<%= page_entries_info @articles %>
-<table id="articles" class="table table-striped table-hover table-condensed table-bordered">
-  <thead>
-    <tr style="background: black; color: white;">
-      <th>たいとる</th>
-      <th>更新日付</th>
-    </tr>
-  </thead>
-
-  <tbody class="page">
-    <%= render @articles %>
-  </tbody>
-</table>
-
-<br>
-<%= paginate @articles , remote: true %>
+<% content_for :navPills do %>
+    <div class="nav navbar-nav navbar-right" style="margin-top: 7.5px; margin-right: 0px;">
+      <ul class="nav nav-pills">
+        <li role="presentation" class="active"><%= link_to '一覧', '/articles' %></li>
+        <li role="presentation"><%= link_to 'カレンダー', '/articles/calender' %></li>
+      </ul>
+    </div>
+<% end %>

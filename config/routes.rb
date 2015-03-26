@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   get 'articles/previous/:id' => 'articles#previousPage' ,:as =>'previousPage'
   get 'articles/next/:id'     => 'articles#nextPage' ,    :as =>'nextPage'
+  get 'articles/get_calendar_event'
+  get 'articles/calender'     => 'articles#calender'
   resources :articles
+  get "/controller1/listing" => 'controller1#listing'
   get "/" => redirect("/articles")
 
   # The priority is based upon order of creation: first created -> highest priority.
