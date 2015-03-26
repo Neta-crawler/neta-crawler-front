@@ -16,6 +16,10 @@ class ArticlesController < ApplicationController
     @hasPrevious = (articleId != getPrevious(articleId))
   end
   
+  def calendar
+    
+  end
+  
   # ajax(GET) /articles/get_calendar_event
   def get_calendar_event
     render :json => Article.all

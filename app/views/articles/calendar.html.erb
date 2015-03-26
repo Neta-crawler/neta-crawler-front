@@ -1,0 +1,52 @@
+<h1>記事カレンダー</h1>
+<div id='calendar'></div>
+
+<% content_for :head do %>
+    <%= stylesheet_link_tag "calendar", :media => "all" %>
+<% end %>
+
+<% content_for :navPills do %>
+    <div class="nav navbar-nav navbar-right" style="margin-top: 7.5px; margin-right: 0px;">
+      <ul class="nav nav-pills">
+        <li role="presentation" ><%= link_to '一覧', '/articles' %></li>
+        <li role="presentation" class="active"><%= link_to 'カレンダー', '/articles/calendar' %></li>
+      </ul>
+    </div>
+<% end %>
+
+<script>
+    $(function(){
+    $('#calendar').fullCalendar({
+        header: {
+            // title, prev, next, prevYear, nextYear, today
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month agendaWeek agendaDay'
+        }
+    });
+    
+    //自動で発火させるため、railsの処理から逸脱させる、、やっぱrailsって使いにくい、、どうなんかなぁ。。
+    $.ajax({
+        url:'get_calendar_event'
+        ,type: 'GET'
+        ,datatype: 'json'
+        ,success: function(data){
+            for (var i = 0; i < data.length; i++){
+                var d = data[i];
+                $('#calendar').fullCalendar('renderEvent', {
+                    title: d.title
+                    ,start: moment(d.date)
+                    ,end:   moment(d.date)
+                    ,color: 'pink'
+                    ,url: '/articles/'+d.id
+                    ,allDay: true
+                },true);
+            }
+        }
+        ,error:function(data){
+            console.log("error occured!! can't get calendar events!!");
+        }
+    
+    });
+});
+</script>
