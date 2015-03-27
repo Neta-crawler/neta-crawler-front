@@ -1,34 +1,49 @@
-<p id="notice"><%= notice %></p>
-
-<div class="row">
-  <div class="col-sm-6 neta">
-    <p><strong>元ネタ:</strong><%= link_to @article.url, @article.url %></p>
-  </div>
+<div class="media">
+  <p id="notice"><%= notice %></p>
+    
+  <div class="media-body">
+      <nav>
+        <ul class="pager">
+          
+            <% if @hasPrevious == true then %>
+              <li class="previous">
+                <%= link_to "←Previous", previousPage_path(@article.id) %>
+              </li>
+            <% else %>
+              <li class="previous disabled">
+                <a>This is First</a>
+              </li>
+            <% end %>
+          
+            <% if @hasNext == true then %>
+              <li class="next">
+                <%= link_to "Next→", nextPage_path(@article.id) %>
+              </li>
+            <% else %>
+              <li class="next disabled">
+                <a>This is Last</a>
+              </li>
+            <% end %>
+          
+        </ul>
+      </div>
+    </nav>
+    
+    <div class="row">
+      <div class="col-sm-6 neta">
+        <p><strong>元ネタ:</strong></p>
+        <p><%= link_to @article.url, @article.url %></p>
+      </div>
+    </div>
+    
   
-  <div class="pull-right">
-    <ul class="pager">
-      <li>
-        <% if @hasPrevious == true then %>
-          <%= link_to "Previous", previousPage_path(@article.id) %>
-        <% else %>
-          This is First
-        <% end %>
-      </li>
-      <li>
-        <% if @hasNext == true then %>
-          <%= link_to "Next", nextPage_path(@article.id) %>
-        <% else %>
-          This is Last
-        <% end %>
-      </li>
-    </ul>
+    <div class="row"></div>
+    <hr>
+    <%= @article.html_body.html_safe %>
   </div>
 </div>
 
 
-<div class="row"></div>
-<hr>
-<%= @article.html_body.html_safe %>
 
 <% content_for :navPills do %>
     <div class="nav navbar-nav hidden-xs navbar-right" style="margin-top: 7.5px; margin-right: 0px;">

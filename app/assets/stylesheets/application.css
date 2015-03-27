@@ -21,15 +21,6 @@ body{
     padding-top: 45px;    
 }
 
-.pager{
-    margin-top:0px;
-    margin-bottom:0px;
-}
-
-.pager li a{
-    background-color: #DCF4F4;
-}
-
 hr{
     margin-top: 5px;
 }
