@@ -1,4 +1,4 @@
-<h1>記事カレンダー</h1>
+<h3>記事カレンダー</h3>
 <div id='calendar'></div>
 
 <% content_for :head do %>
@@ -6,10 +6,10 @@
 <% end %>
 
 <% content_for :navPills do %>
-    <div class="nav navbar-nav navbar-right" style="margin-top: 7.5px; margin-right: 0px;">
+    <div class="nav navbar-nav  navbar-right" style="margin-top: 7.5px; margin-right: 0px;">
       <ul class="nav nav-pills">
         <li role="presentation" ><%= link_to '一覧', '/articles' %></li>
-        <li role="presentation" class="active"><%= link_to 'カレンダー', '/articles/calendar' %></li>
+        <li role="presentation" class="active"><a href='/articles/calendar'>カレンダー</a></li>
       </ul>
     </div>
 <% end %>
@@ -18,9 +18,8 @@
     $(function(){
     $('#calendar').fullCalendar({
         header: {
-            // title, prev, next, prevYear, nextYear, today
-            left: 'prev,next today',
-            center: 'title',
+            left:   'title',
+            center: '',
             right: 'month agendaWeek agendaDay'
         }
     });
