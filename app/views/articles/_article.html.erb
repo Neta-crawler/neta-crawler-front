@@ -5,7 +5,7 @@
 <% end %>
 
 <tr class="article">
-    <td class="has-img" style="vertical-align: middle;text-align: center;"><%= image_tag(image_url("#{imageUrl}"), class: 'img-responsive') %></td>
+    <td class="has-img" style="vertical-align: middle;text-align: center;"><%= image_tag(image_url("#{imageUrl}"), class: 'img-responsive', :width => "100" ) %></td>
     <td class="vertical-midle" style="vertical-align: middle;"><%= link_to article.title, article %></td>
     <td class="hidden-xs hidden-sm"><%= article.date.strftime("%Y/%m/%d %H:%M:%S") %></td>
     <!--<td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
