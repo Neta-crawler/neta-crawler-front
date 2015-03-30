@@ -29,3 +29,15 @@ hr{
     top: 7px;
 }
 
+img {
+    width: 100px;
+}
+
+.vertical-midle{
+    vertical-align: middle;
+}
+
+.has-img{
+    text-align:center; 
+    vertical-align:middle;
+}
