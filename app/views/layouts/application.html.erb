@@ -8,6 +8,11 @@
   <%= csrf_meta_tags %>
   <%= yield :head %>
   <meta name="viewport" content="width=device-width" />
+  <!-- twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@misterspotlight">
+  <meta name="twitter:creator" content="@misterspotlight">
+  <script id="twitter-wjs" async="" src="https://platform.twitter.com/widgets.js"></script>
 </head>
 <body>
 
@@ -19,7 +24,6 @@
       <div class="row">
           <a class="navbar-brand" href="/articles">ねたくろ～ら～</a>
           <%= yield :navPills %>
-        
       </div>
     </div>    
     
@@ -31,5 +35,27 @@
   <%= yield %>
 </div>
 
+<div id="page-top">
+   <p><a id="move-page-top">▲</a></p>
+</div>
+
+<script>
+$(function(){
+	$(window).scroll(function(){
+		var now = $(window).scrollTop();
+		
+		if(now > 750){
+			$('#page-top').fadeIn('slow');
+		}else{
+			$('#page-top').fadeOut('slow');
+		}
+	});
+	$('#move-page-top').click(function(){
+		$('html,body').animate({scrollTop:0},'slow');
+	});
+});
+</script>
+
 </body>
+
 </html>

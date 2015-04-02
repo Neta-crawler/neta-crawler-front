@@ -1,17 +1,13 @@
 <div class="row">
-<h3>記事一覧</h3>
-  <%= page_entries_info @articles %>
-  <table id="articles" class="table table-striped table-hover table-condensed ">
-  <thead>
-    <tr style="background: black; color: white;">
-      <th colspan="2">たいとる</th>
-      <th class="hidden-xs hidden-sm">更新日付</th>
-    </tr>
-  </thead>
-  <tbody class="page">
-    <%= render @articles %>
-  </tbody>
-</table>
+<h3>新着記事一覧</h3>
+  <!--<%= page_entries_info @articles %>-->
+  <hr>
+  
+  <div id="articles">
+    <div class="page">
+      <%= render @articles %>
+    </div>
+  </div>
 <br>
 <%= paginate @articles , remote: true %>
 
@@ -36,7 +32,7 @@
         },
         navSelector: "nav.pagination",
         nextSelector: "nav.pagination a[rel=next]",
-        itemSelector: "#articles tr.article"
+        itemSelector: "#articles div.article"
     });
   
   });

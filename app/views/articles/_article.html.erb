@@ -4,9 +4,10 @@
     <% imageUrl = "noimage.gif" %>
 <% end %>
 
-<tr class="article">
-    <td class="has-img" style="vertical-align: middle;text-align: center;"><%= image_tag(image_url("#{imageUrl}"), class: 'img-responsive', :width => "200" ) %></td>
-    <td class="vertical-midle" style="vertical-align: middle;"><%= link_to article.title, article %></td>
-    <td class="hidden-xs hidden-sm"><%= article.date.strftime("%Y/%m/%d %H:%M:%S") %></td>
-    <!--<td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-</tr>
+<div class="article">
+    <div class="col-sm-4" style="height:300px;">
+        <div class="has-img row" style="vertical-align: middle;text-align: center;"><%= link_to image_tag(image_url("#{imageUrl}"), class: 'img-responsive img-list'), article %></div>
+        <div class="vertical-midle row col-sm-10 col-sm-offset-1" style="vertical-align: middle;"><%= link_to article.title, article %></div>
+        <div class="hidden-xs hidden-sm"><p class="pull-right"><%= article.date.strftime("%Y/%m/%d %H:%M:%S") %></p></div>
+    </div>
+</div>

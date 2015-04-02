@@ -41,6 +41,33 @@
     <hr>
     <%= @article.html_body.html_safe %>
   </div>
+  
+  <div class="media-body">
+    <nav>
+      <ul class="pager">
+        
+          <% if @hasPrevious == true then %>
+            <li class="previous">
+              <%= link_to "←Previous", previousPage_path(@article.id) %>
+            </li>
+          <% else %>
+            <li class="previous disabled">
+              <a>This is First</a>
+            </li>
+          <% end %>
+        
+          <% if @hasNext == true then %>
+            <li class="next">
+              <%= link_to "Next→", nextPage_path(@article.id) %>
+            </li>
+          <% else %>
+            <li class="next disabled">
+              <a>This is Last</a>
+            </li>
+          <% end %>
+      </ul>
+    </div>
+  </nav>
 </div>
 
 
